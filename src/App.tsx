@@ -1,5 +1,7 @@
 // Components
 import { Header } from '@/components';
+// Style
+import './App.scss';
 
 interface AppProps {
   children: React.ReactNode;
@@ -12,10 +14,10 @@ interface AppProps {
  */
 const App = ({ children }: AppProps) => {
   return (
-    <>
+    <div>
       <Header />
       {children}
-    </>
+    </div>
   );
 };
 

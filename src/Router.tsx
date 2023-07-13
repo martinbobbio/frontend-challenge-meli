@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Components
 import { Home } from '@/views';
 import App from '@/App';
-// Constants
-import { SupportedPages } from '@/constants';
 
 /**
  * Functional component that render the router and wrap the application.
@@ -23,11 +21,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={SupportedPages.Home} element={wrapApplication(<Home />)} />
-        <Route
-          path={SupportedPages.Components}
-          element={wrapApplication(<Home />)}
-        />
+        <Route path={'/'} element={wrapApplication(<Home />)} />
       </Routes>
     </BrowserRouter>
   );

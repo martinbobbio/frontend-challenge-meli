@@ -24,5 +24,12 @@ export default defineConfig(() => {
         return acc;
       }, {}),
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "./src/variables.scss";`,
+        },
+      },
+    },
   };
 });
