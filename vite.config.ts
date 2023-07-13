@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'url';
+import tailwind from 'tailwindcss';
 import dotenv from 'dotenv';
 
 export default defineConfig(() => {
@@ -29,6 +30,9 @@ export default defineConfig(() => {
         scss: {
           additionalData: `@import "./src/variables.scss";`,
         },
+      },
+      postcss: {
+        plugins: [tailwind],
       },
     },
   };
