@@ -1,7 +1,9 @@
 {
-  "name": "frontend-challenge-meli",
-  "private": true,
   "version": "0.1.0",
+  "name": "frontend-challenge-meli",
+  "author": "Martin Bobbio",
+  "description": "Frontend challenge for mercado libre",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,3 +1,8 @@
+// Constants
+import { CONFIG } from '@/constants';
+// Components
+import { InputSearch } from '@/components';
+// Style
 import './Header.scss';
 
 /**
@@ -6,7 +11,18 @@ import './Header.scss';
  * @return React.ReactElement <Header/>
  */
 const Header = () => {
-  return <div className='header p-4'>header</div>;
+  return (
+    <div className='header flex items-center'>
+      <div className='container'>
+        <div className='grid grid-cols-12'>
+          <div className='col-start-2 col-span-10 flex items-center'>
+            <img className='w-12 h-100' src={CONFIG.branding.logo} alt='logo' />
+            <InputSearch />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Header;

@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+.card-alert {
+    background: $color-card;
+    border-radius: $border-radius-md;
+    padding: $spacing-lg;
+    .title {
+        font-size: $font-size-xl;
+        font-weight: 700;
+        margin-bottom: $spacing-md;
+    }
+}

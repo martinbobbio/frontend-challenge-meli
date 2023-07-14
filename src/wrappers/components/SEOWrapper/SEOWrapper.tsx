@@ -15,7 +15,7 @@ const SEOWrapper = ({ children }: SEOWrapperProps) => {
   return (
     <>
       <Helmet>
-        <title>Challenge MELI</title>
+        <title>Frontend challenge - MELI</title>
         <meta name='description' content='Descripción de la página' />
       </Helmet>
       {children}

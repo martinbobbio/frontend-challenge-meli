@@ -1,0 +1,23 @@
+@import '../../variables.scss';
+
+
+.input-search {
+    height: 32px;
+    margin-left: $spacing-lg;
+    font-size: $font-size-md;
+    border-radius: $border-radius-sm;
+    padding: $spacing-sm $spacing-md;
+}
+
+.search-icon {
+    width: 14px;
+}
+
+.search-icon-container {
+    height: 32px;
+    width: 32px;
+    right: -32px;
+    background: $color-white;
+    border-top-right-radius: $border-radius-sm;
+    border-bottom-right-radius: $border-radius-sm;
+}
