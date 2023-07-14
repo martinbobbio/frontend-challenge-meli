@@ -16,7 +16,7 @@ const App = ({ children }: AppProps) => {
   return (
     <div>
       <Header />
-      {children}
+      <div className='app container mx-auto'>{children}</div>
     </div>
   );
 };

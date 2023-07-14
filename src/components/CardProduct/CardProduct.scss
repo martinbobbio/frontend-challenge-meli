@@ -1,0 +1,39 @@
+@import '../../variables.scss';
+
+.card-product {
+    
+    .picture {
+        min-width: 180px;
+        min-height: 180px;
+        max-width: 180px;
+        max-height: 180px;
+        margin: $spacing-md;
+        border-radius: $border-radius-sm;
+        cursor: pointer;
+    }
+
+    .text-container {
+        margin-top: $spacing-md;
+        .price {
+            font-size: $font-size-xl;
+            margin-bottom: $spacing-lg;
+            cursor: pointer;
+        }
+        .icon-shipping {
+            width: 21px;
+            height: 21px;
+        }
+        .title {
+            font-size: $font-size-lg;
+        }
+        
+    }
+
+    .place-container {
+        margin-top: $spacing-lg;
+        .place {
+            color: $color-gray-high;
+            font-size: $font-size-sm;
+        }
+    }
+}

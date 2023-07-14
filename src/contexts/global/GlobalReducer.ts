@@ -5,10 +5,10 @@ import { Action, GlobalState } from './GlobalState';
 
 export const globalReducer: Reducer<GlobalState, Action> = (state, action) => {
   switch (action.type) {
-    case 'SET_LOADING':
+    case 'SET_SEARCH':
       return {
         ...state,
-        loading: action.payload,
+        search: action.payload,
       };
 
     default:

@@ -1,9 +1,9 @@
 export interface GlobalState {
-  loading: boolean;
+  search: string;
 }
 
-export type Action = { type: 'SET_LOADING'; payload: boolean };
+export type Action = { type: 'SET_SEARCH'; payload: string };
 
 export const initialGlobalState: GlobalState = {
-  loading: false,
+  search: '',
 };

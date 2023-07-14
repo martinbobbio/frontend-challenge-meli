@@ -10,13 +10,13 @@ import { GlobalContext } from '@/contexts';
  */
 const useGlobalContext = () => {
   const { state, dispatch } = useContext(GlobalContext);
-  const { loading } = state;
+  const { search } = state;
 
-  const setLoading = (payload: boolean) => {
-    dispatch({ type: 'SET_LOADING', payload });
+  const setSearch = (payload: string) => {
+    dispatch({ type: 'SET_SEARCH', payload });
   };
 
-  return { loading, setLoading };
+  return { search, setSearch };
 };
 
 export default useGlobalContext;

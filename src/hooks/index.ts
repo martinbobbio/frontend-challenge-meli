@@ -1,4 +1,4 @@
 // Context
 export { default as useGlobalContext } from './context/useGlobalContext';
-// SWR
-export { default as useFetcher } from './swr/useFetcher';
+// API
+export { default as useProducts } from './api/useProducts';

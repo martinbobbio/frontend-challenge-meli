@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
 // Components
-import { CardEmptyState } from '@/components';
-// Assets
-import { emptyStateSearch } from '@/assets';
+import { Breadcrumb, CardEmptyState, CardProduct } from '@/components';
 // Style
 import './Home.scss';
-// Props
-import { CardEmptyStateProps } from '@/components/CardEmptyState/CardEmptyState';
+// Hooks
+import { useGlobalContext, useProducts } from '@/hooks';
+// Utils
+import { getEmptyStateDefault, getEmptyStateNotFound } from '@/utils';
 
 /**
  * Functional component that render component home.
@@ -15,40 +14,38 @@ import { CardEmptyStateProps } from '@/components/CardEmptyState/CardEmptyState'
  */
 const Home = () => {
   // Vars
-  const [emptyState, setEmptyState] = useState<CardEmptyStateProps | undefined>(
-    undefined
-  );
+  const { search } = useGlobalContext();
+  const products = useProducts(search);
+  const shouldRender = {
+    emptyStateDefault: !products.isLoading && !products.data,
+    emptyStateNotFound:
+      !products.isLoading && products.data && !products.data.items.length,
+    skeletons: products.isLoading && !products.data,
+    main: !products.isLoading && products.data && !!products.data.items.length,
+  };
 
   // Hooks
-  useEffect(() => {
-    setEmptyState({
-      title: <p>Escribí en el buscador lo que querés encontrar.</p>,
-      description: (
-        <ul>
-          <li>
-            <b>• Escribí tu búsqueda</b> en el campo que figura en la parte
-            superior de la pantalla.
-          </li>
-          <li>
-            <b>• Navegá por categorías de productos</b> para encontrar el
-            producto que buscás.
-          </li>
-        </ul>
-      ),
-      icon: <img src={emptyStateSearch} />,
-    });
-  }, []);
+
+  //if (shouldRender.main && !products.data?.items.length) {
 
   return (
-    <div className='home'>
-      {emptyState && (
-        <CardEmptyState
-          title={emptyState.title}
-          icon={emptyState.icon}
-          description={emptyState.description}
-        />
+    <>
+      {shouldRender.emptyStateDefault && (
+        <CardEmptyState {...getEmptyStateDefault()} />
       )}
-    </div>
+      {shouldRender.emptyStateNotFound && (
+        <CardEmptyState {...getEmptyStateNotFound()} />
+      )}
+      {shouldRender.skeletons && <>skeletons</>}
+      {shouldRender.main && (
+        <>
+          <Breadcrumb title={'Electronica > Televisores'} />
+          {products.data?.items.map((item, i) => (
+            <CardProduct key={i} {...item} />
+          ))}
+        </>
+      )}
+    </>
   );
 };
 

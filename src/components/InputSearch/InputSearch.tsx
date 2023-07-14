@@ -2,6 +2,8 @@
 import { useState, ChangeEvent, KeyboardEvent } from 'react';
 // Assets
 import { iconSearchx2 } from '@/assets';
+// Hooks
+import { useGlobalContext } from '@/hooks';
 // Style
 import './InputSearch.scss';
 
@@ -12,15 +14,15 @@ import './InputSearch.scss';
  */
 const InputSearch = () => {
   const [inputValue, setInputValue] = useState('');
+  const { setSearch } = useGlobalContext();
 
   /**
    * Function that handle changes and update state.
    *
    * @return void
    */
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) =>
     setInputValue(event.target.value);
-  };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -33,9 +35,7 @@ const InputSearch = () => {
    *
    * @return void
    */
-  const handleSubmit = () => {
-    console.log(inputValue);
-  };
+  const handleSubmit = () => setSearch(inputValue);
 
   return (
     <div className='w-full relative'>

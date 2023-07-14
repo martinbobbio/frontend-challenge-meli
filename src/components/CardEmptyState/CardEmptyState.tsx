@@ -8,13 +8,13 @@ export interface CardEmptyStateProps {
 }
 
 /**
- * Functional component that render component card alert.
+ * Functional component that render component card empty state.
  *
  * @return React.ReactElement <CardEmptyState/>
  */
 const CardEmptyState = ({ title, icon, description }: CardEmptyStateProps) => {
   return (
-    <div className='card-alert'>
+    <div className='card-empty-state'>
       <div className='grid grid-cols-3 text-left'>
         <div className='icon flex justify-center'>{icon}</div>
         <div className='col-span-2'>
