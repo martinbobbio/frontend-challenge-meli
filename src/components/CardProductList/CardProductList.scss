@@ -38,3 +38,28 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .card-product-list {
+        .picture {
+            min-width: 140px;
+            min-height: 140px;
+            max-width: 140px;
+            max-height: 140px;
+        }
+        .text-container {
+            margin-top: 0;
+            .price {
+                font-size: $font-size-lg;
+                margin-bottom: $spacing-sm;
+            }
+            .icon-shipping {
+                width: 16px;
+                height: 16px;
+            }
+            .title {
+                font-size: $font-size-md;
+            }
+        }
+    }
+}

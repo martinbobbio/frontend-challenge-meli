@@ -1,9 +1,17 @@
 // React
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // Hooks
-import { useProductDetail } from '@/hooks';
+import { useGlobalContext, useProductDetail } from '@/hooks';
 // Components
-import { Breadcrumb, CardProductDetail, SkeletonDetail } from '@/components';
+import {
+  Breadcrumb,
+  CardEmptyState,
+  CardProductDetail,
+  SkeletonDetail,
+} from '@/components';
+// Utils
+import { getEmptyStateError } from '@/utils';
 // Style
 import './ProductDetail.scss';
 
@@ -14,20 +22,37 @@ import './ProductDetail.scss';
  */
 const ProductDetail = () => {
   const { id } = useParams();
-  const productDetail = useProductDetail(id);
+  const { setSeoTitle, setSeoTagDynamic } = useGlobalContext();
+  const { data, isLoading, error } = useProductDetail(id);
   const shouldRender = {
-    skeletons: productDetail.isLoading && !productDetail.data,
-    main: !productDetail.isLoading && productDetail.data,
+    skeletons: isLoading && !data && !error,
+    main: !isLoading && data && !error,
+    error: error,
   };
+
+  // Hook for settings SEO meta tags and title
+  useEffect(() => {
+    if (data?.item.title) {
+      setSeoTitle(data.item.title);
+      setSeoTagDynamic([
+        {
+          name: 'description',
+          content: `✓ Comprá online de manera segura con Compra Protegida - ${data.item.title}`,
+        },
+      ]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   return (
     <>
       {shouldRender.skeletons && <SkeletonDetail />}
-      {shouldRender.main && productDetail.data && (
+      {shouldRender.error && <CardEmptyState {...getEmptyStateError()} />}
+      {shouldRender.main && data && (
         <>
-          <Breadcrumb categories={productDetail.data.categories} />
+          <Breadcrumb categories={data.categories} />
           <div className='product-detail-container '>
-            <CardProductDetail {...productDetail.data.item} />
+            <CardProductDetail {...data.item} />
           </div>
         </>
       )}

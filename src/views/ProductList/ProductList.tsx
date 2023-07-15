@@ -1,4 +1,5 @@
 // React
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // Components
 import {
@@ -10,9 +11,13 @@ import {
 // Style
 import './ProductList.scss';
 // Hooks
-import { useProductList } from '@/hooks';
+import { useGlobalContext, useProductList } from '@/hooks';
 // Utils
-import { getEmptyStateDefault, getEmptyStateNotFound } from '@/utils';
+import {
+  getEmptyStateDefault,
+  getEmptyStateError,
+  getEmptyStateNotFound,
+} from '@/utils';
 
 /**
  * Functional component that render component product list.
@@ -21,19 +26,37 @@ import { getEmptyStateDefault, getEmptyStateNotFound } from '@/utils';
  */
 const ProductList = () => {
   const { search } = useParams();
-  const productList = useProductList(search);
+  const { setSeoTitle, setSeoTagDynamic } = useGlobalContext();
+  const { data, isLoading, error } = useProductList(search);
   const shouldRender = {
-    emptyStateDefault: !productList.isLoading && !productList.data,
-    emptyStateNotFound:
-      !productList.isLoading &&
-      productList.data &&
-      !productList.data.items.length,
-    skeletons: productList.isLoading && !productList.data,
-    main:
-      !productList.isLoading &&
-      productList.data &&
-      !!productList.data.items.length,
+    emptyStateDefault: !isLoading && !data && !error,
+    error: error,
+    emptyStateNotFound: !isLoading && data && !data.items.length && !error,
+    skeletons: isLoading && !data && !error,
+    main: !isLoading && data && !!data.items.length && !error,
   };
+
+  // Hook for settings SEO meta tags and title
+  useEffect(() => {
+    if (search) {
+      setSeoTitle(search);
+      setSeoTagDynamic([
+        {
+          name: 'description',
+          content: `Envíos Gratis en el día ✓ Comprá ${search} en cuotas sin interés! Conocé nuestras increíbles ofertas y promociones en millones de productos.`,
+        },
+      ]);
+    } else {
+      setSeoTitle('Frontend challenge');
+      setSeoTagDynamic([
+        {
+          name: 'description',
+          content: `Envíos Gratis en el día ✓ Conocé nuestras increíbles ofertas y promociones en millones de productos.`,
+        },
+      ]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
 
   return (
     <>
@@ -44,11 +67,12 @@ const ProductList = () => {
         <CardEmptyState {...getEmptyStateNotFound()} />
       )}
       {shouldRender.skeletons && <SkeletonList />}
-      {shouldRender.main && productList.data && (
+      {shouldRender.error && <CardEmptyState {...getEmptyStateError()} />}
+      {shouldRender.main && data && (
         <>
-          <Breadcrumb categories={productList.data.categories} />
+          <Breadcrumb categories={data.categories} />
           <div className='product-list-container'>
-            {productList.data?.items.map((item, i) => (
+            {data?.items.map((item, i) => (
               <CardProductList key={i} {...item} />
             ))}
           </div>

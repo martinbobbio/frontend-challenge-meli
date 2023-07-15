@@ -7,6 +7,23 @@
     .title {
         font-size: $font-size-xl;
         font-weight: 700;
+        line-height: 1.3;
         margin-bottom: $spacing-md;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-empty-state {
+        padding: $spacing-md;
+        .title {
+            font-size: $font-size-md;
+        }
+        .description {
+            font-size: $font-size-sm;
+        }
+        .icon {
+            text-align: center;
+            width: 64px;
+        }
     }
 }

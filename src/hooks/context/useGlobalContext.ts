@@ -2,6 +2,8 @@
 import { useContext } from 'react';
 // Hooks
 import { GlobalContext } from '@/contexts';
+// Types
+import { DynamicTags } from '@/contexts/global/GlobalState';
 
 /**
  * Hook that facility global contexts calls.
@@ -10,13 +12,17 @@ import { GlobalContext } from '@/contexts';
  */
 const useGlobalContext = () => {
   const { state, dispatch } = useContext(GlobalContext);
-  const { search } = state;
+  const { seo } = state;
 
-  const setSearch = (payload: string) => {
-    dispatch({ type: 'SET_SEARCH', payload });
+  const setSeoTitle = (payload: string) => {
+    dispatch({ type: 'SET_SEO_TITLE', payload });
   };
 
-  return { search, setSearch };
+  const setSeoTagDynamic = (payload: DynamicTags[]) => {
+    dispatch({ type: 'SET_SEO_DYNAMIC_TAGS', payload });
+  };
+
+  return { seo, setSeoTitle, setSeoTagDynamic };
 };
 
 export default useGlobalContext;

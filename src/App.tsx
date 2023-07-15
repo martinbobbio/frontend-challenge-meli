@@ -18,7 +18,9 @@ const App = ({ children }: AppProps) => {
       <Header />
       <div className='app container mx-auto'>
         <div className='grid grid-cols-12'>
-          <div className='col-start-2 col-span-10'>{children}</div>
+          <div className='col-start-1 col-span-12 sm:col-start-2 sm:col-span-10 px-4 sm:px-0'>
+            {children}
+          </div>
         </div>
       </div>
     </>

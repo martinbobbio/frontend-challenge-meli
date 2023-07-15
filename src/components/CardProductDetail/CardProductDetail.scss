@@ -4,6 +4,7 @@
 
     .picture {
         padding: $spacing-lg 0;
+        border-radius: $border-radius-sm;
     }
     
     .text-container {
@@ -26,6 +27,7 @@
         .price {
             margin: $spacing-lg 0;
             font-size: $font-size-xxl;
+            white-space: nowrap;
         }
     }
 
@@ -43,4 +45,40 @@
         }
     }
 
+}
+
+@media (max-width: 768px) {
+    .card-product-detail {
+        .picture {
+            padding: 0;
+        }
+        .text-container {
+            margin: 0 $spacing-md;
+            .condition, .title, .price, .button  {
+                margin: 0;
+            }
+            .condition {
+                font-size: $font-size-sm;
+                margin-top: $spacing-md;
+            }
+            .title {
+                font-size: $font-size-lg;
+                margin-bottom: $spacing-md;
+            }
+            .price {
+                font-size: $font-size-xl;
+                margin-bottom: $spacing-md;
+            }
+        }
+        .description-container {
+            margin: $spacing-lg $spacing-md;
+            .description-label {
+                font-size: 20px;
+            }
+            .description {
+                font-size: 14px;
+                margin-top: $spacing-md;
+            }
+        }
+    }
 }

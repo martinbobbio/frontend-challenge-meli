@@ -25,9 +25,25 @@ const CardProductDetail = ({
 }: ResponseProductDetailItem) => {
   const navigate = useNavigate();
   const redirectToDetail = () => navigate(`/product/${id}`);
+
+  const renderTitle = () => (
+    <>
+      <p className='condition'>
+        {condition === 'used' && 'Usado'}
+        {condition === 'new' && 'Nuevo'}
+        {' - '}
+        {`${sold_quantity} vendidos`}
+      </p>
+      <p className='title'>{title}</p>
+    </>
+  );
+
   return (
     <div className='card-product-detail grid grid-cols-12'>
-      <div className='col-span-9 flex mx-auto'>
+      <div className='col-start-1 col-span-12 sm:col-start-2 sm:col-span-10 text-container text-left sm:hidden'>
+        <div>{renderTitle()}</div>
+      </div>
+      <div className='col-span-12 sm:col-span-9 flex mx-auto'>
         <img
           className='picture w-full h-auto'
           src={picture}
@@ -35,21 +51,15 @@ const CardProductDetail = ({
           onClick={redirectToDetail}
         />
       </div>
-      <div className='col-start-10 col-span-3 text-left text-container'>
-        <p className='condition'>
-          {condition === 'used' && 'Usado'}
-          {condition === 'new' && 'Nuevo'}
-          {' - '}
-          {`${sold_quantity} vendidos`}
-        </p>
-        <p className='title'>{title}</p>
+      <div className='col-start-1 col-span-12 sm:col-start-10 sm:col-span-3 text-left text-container'>
+        <div className='hidden sm:block'>{renderTitle()}</div>
         <p className='price'>
           {price.currency} {amountFormat(price.amount)}
         </p>
         <Button>Comprar</Button>
       </div>
       {description && (
-        <div className='col-span-9 text-left description-container'>
+        <div className='col-span-12 sm:col-span-9 text-left description-container'>
           <p className='description-label'>Descripción del producto</p>
           <p className='description'>{description}</p>
         </div>

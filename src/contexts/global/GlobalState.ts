@@ -1,9 +1,21 @@
-export interface GlobalState {
-  search: string;
+export interface DynamicTags {
+  name: string;
+  content: string;
 }
 
-export type Action = { type: 'SET_SEARCH'; payload: string };
+export interface GlobalState {
+  seo: {
+    title: string;
+    dynamicTags?: DynamicTags[];
+  };
+}
+
+export type Action =
+  | { type: 'SET_SEO_TITLE'; payload: string }
+  | { type: 'SET_SEO_DYNAMIC_TAGS'; payload: DynamicTags[] };
 
 export const initialGlobalState: GlobalState = {
-  search: '',
+  seo: {
+    title: '',
+  },
 };

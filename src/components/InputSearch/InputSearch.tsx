@@ -36,7 +36,7 @@ const InputSearch = () => {
    * @return void
    */
   const handleSubmit = () => {
-    if (inputValue) navigate(`/search/${inputValue}`);
+    if (inputValue.trim()) navigate(`/search/${inputValue}`);
   };
 
   return (

@@ -8,3 +8,4 @@ export { default as iconShipping } from './images/icons/icon-shipping.png';
 export { default as iconShippingx2 } from './images/icons/icon-shipping@2x.png';
 // Empty States
 export { default as emptyStateSearch } from './images/empty-states/search.svg';
+export { default as emptyStateError } from './images/empty-states/error.svg';

@@ -9,3 +9,9 @@
     border-radius: $border-radius-md;
     margin-bottom: 64px;
 }
+
+@media (max-width: 768px) {
+    .card-empty-state {
+        margin: $spacing-md 0;
+    }
+}

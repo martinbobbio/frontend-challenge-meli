@@ -21,3 +21,9 @@
     border-top-right-radius: $border-radius-sm;
     border-bottom-right-radius: $border-radius-sm;
 }
+
+@media (max-width: 768px) {
+    .input-search {
+        margin-left: $spacing-md;
+    }
+}

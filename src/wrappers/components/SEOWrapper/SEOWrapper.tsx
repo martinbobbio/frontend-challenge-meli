@@ -1,3 +1,5 @@
+// Hooks
+import { useGlobalContext } from '@/hooks';
 // Libreries
 import { Helmet } from 'react-helmet';
 
@@ -12,11 +14,14 @@ interface SEOWrapperProps {
  * @return React.ReactElement <SEOWrapper/>
  */
 const SEOWrapper = ({ children }: SEOWrapperProps) => {
+  const { seo } = useGlobalContext();
   return (
     <>
       <Helmet>
-        <title>Frontend challenge - MELI</title>
-        <meta name='description' content='Descripción de la página' />
+        <title>{seo.title} | Mercado Libre 📦</title>
+        {seo.dynamicTags?.map((tag, i) => (
+          <meta key={i} name={tag.name} content={tag.content} />
+        ))}
       </Helmet>
       {children}
     </>

@@ -1,23 +1,35 @@
 @import '../../variables.scss';
 
-.breadcrumb {
-    margin: $spacing-md 0;
+.skeleton-list {
+    .breadcrumb {
+        margin: $spacing-md 0;
+    }
+    
+    .amount {
+        margin-bottom: $spacing-lg;
+    }
+    
+    .title {
+        margin-bottom: $spacing-sm;
+    }
+    
+    .condition {
+        margin-top: $spacing-lg;
+    }
+    
+    .product-list-container {
+        background: $color-card;
+        border-radius: $border-radius-md;
+        margin-bottom: 64px;
+    }
 }
 
-.amount {
-    margin-bottom: $spacing-lg;
-}
 
-.title {
-    margin-bottom: $spacing-sm;
-}
-
-.condition {
-    margin-top: $spacing-lg;
-}
-
-.product-list-container {
-    background: $color-card;
-    border-radius: $border-radius-md;
-    margin-bottom: 64px;
+@media (max-width: 768px) {
+    .skeleton-list {
+        .amount {
+            margin-top: $spacing-md;
+            margin-bottom: 0;
+        }
+    }
 }
