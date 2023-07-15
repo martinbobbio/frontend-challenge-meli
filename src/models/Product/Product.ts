@@ -1,23 +1,43 @@
-export interface ResponseProductsAuthor {
+export interface ResponseProductAuthor {
   firstname: string;
   lastname: string;
 }
 
-export interface ResponseProductsItem {
+export interface ResponseProductPrice {
+  currency: string;
+  amount: number;
+  decimals: number;
+}
+
+export interface ResponseProductListItem {
   id: string;
   title: string;
   picture: string;
   condition: string;
   free_shipping: boolean;
-  price: {
-    currency: string;
-    amount: number;
-    decimals: number;
-  };
+  place: string;
+  price: ResponseProductPrice;
 }
 
-export interface ResponseProducts {
-  author: ResponseProductsAuthor;
+export interface ResponseProductDetailItem {
+  id: string;
+  title: string;
+  picture: string;
+  condition: string;
+  free_shipping: boolean;
+  sold_quantity: number;
+  description: string;
+  price: ResponseProductPrice;
+}
+
+export interface ResponseProductList {
+  author: ResponseProductAuthor;
   categories: string[];
-  items: ResponseProductsItem[];
+  items: ResponseProductListItem[];
+}
+
+export interface ResponseProductDetail {
+  author: ResponseProductAuthor;
+  categories: string[];
+  item: ResponseProductDetailItem;
 }

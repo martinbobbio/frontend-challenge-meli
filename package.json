@@ -1,5 +1,5 @@
 {
-  "version": "0.4.5",
+  "version": "0.8.5",
   "name": "frontend-challenge-meli",
   "author": "Martin Bobbio",
   "description": "Frontend challenge for mercado libre",
@@ -16,6 +16,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-loading-skeleton": "^3.3.1",
     "react-router-dom": "^6.12.1",
     "swr": "^2.2.0",
     "tailwindcss": "^3.3.2"

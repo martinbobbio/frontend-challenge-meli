@@ -1,3 +1,5 @@
+// React
+import { useNavigate } from 'react-router-dom';
 // Constants
 import { CONFIG } from '@/constants';
 // Components
@@ -11,12 +13,18 @@ import './Header.scss';
  * @return React.ReactElement <Header/>
  */
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div className='header flex items-center'>
       <div className='container mx-auto'>
         <div className='grid grid-cols-12'>
           <div className='col-start-2 col-span-10 flex items-center'>
-            <img className='w-12 h-100' src={CONFIG.branding.logo} alt='logo' />
+            <img
+              className='w-12 h-100 cursor-pointer'
+              src={CONFIG.branding.logo}
+              onClick={() => navigate('/')}
+              alt='logo'
+            />
             <InputSearch />
           </div>
         </div>

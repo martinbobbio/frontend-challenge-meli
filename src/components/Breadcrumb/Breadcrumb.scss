@@ -1,7 +1,10 @@
 @import '../../variables.scss';
 
 .breadcrumb {
-    color: $color-gray-high;
+    color: $color-gray-low;
     font-size: $font-size-sm;
     margin: $spacing-md 0;
+    .separator {
+        margin: 0 4px;
+    }
 }

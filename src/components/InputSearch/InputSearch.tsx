@@ -1,9 +1,8 @@
 // React
 import { useState, ChangeEvent, KeyboardEvent } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 // Assets
 import { iconSearchx2 } from '@/assets';
-// Hooks
-import { useGlobalContext } from '@/hooks';
 // Style
 import './InputSearch.scss';
 
@@ -13,8 +12,9 @@ import './InputSearch.scss';
  * @return React.ReactElement <InputSearch/>
  */
 const InputSearch = () => {
-  const [inputValue, setInputValue] = useState('');
-  const { setSearch } = useGlobalContext();
+  const { search } = useParams();
+  const [inputValue, setInputValue] = useState(search || '');
+  const navigate = useNavigate();
 
   /**
    * Function that handle changes and update state.
@@ -35,12 +35,14 @@ const InputSearch = () => {
    *
    * @return void
    */
-  const handleSubmit = () => setSearch(inputValue);
+  const handleSubmit = () => {
+    if (inputValue) navigate(`/search/${inputValue}`);
+  };
 
   return (
     <div className='w-full relative'>
       <input
-        className='input-search w-full'
+        className='input-search'
         type='text'
         value={inputValue}
         onChange={handleChange}
@@ -50,7 +52,7 @@ const InputSearch = () => {
       />
       <div
         onClick={handleSubmit}
-        className='search-icon-container flex items-center justify-center cursor-pointer absolute top-0'
+        className='search-icon-container flex items-center justify-center cursor-pointer absolute top-0 right-0'
       >
         <img className='search-icon' src={iconSearchx2} alt='search-icon' />
       </div>

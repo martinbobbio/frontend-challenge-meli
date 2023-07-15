@@ -1,0 +1,23 @@
+@import '../../variables.scss';
+
+.breadcrumb {
+    margin: $spacing-md 0;
+}
+
+.image {
+    margin: $spacing-lg;
+}
+
+.condition {
+    margin: $spacing-lg 0;
+}
+
+.price {
+    margin: $spacing-lg 0;
+}
+
+.product-detail-container {
+    background: $color-card;
+    border-radius: $border-radius-md;
+    margin-bottom: 64px;
+}

@@ -1,7 +1,7 @@
 // React
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Components
-import { Home } from '@/views';
+import { ProductDetail, ProductList } from '@/views';
 import App from '@/App';
 
 /**
@@ -21,7 +21,15 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={'/'} element={wrapApplication(<Home />)} />
+        <Route path={'/'} element={wrapApplication(<ProductList />)} />
+        <Route
+          path={'/search/:search'}
+          element={wrapApplication(<ProductList />)}
+        />
+        <Route
+          path={'/product/:id'}
+          element={wrapApplication(<ProductDetail />)}
+        />
       </Routes>
     </BrowserRouter>
   );

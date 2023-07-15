@@ -2,6 +2,7 @@
 
 
 .input-search {
+    width: calc(100% - 32px);
     height: 32px;
     margin-left: $spacing-lg;
     font-size: $font-size-md;
@@ -16,7 +17,6 @@
 .search-icon-container {
     height: 32px;
     width: 32px;
-    right: -32px;
     background: $color-white;
     border-top-right-radius: $border-radius-sm;
     border-bottom-right-radius: $border-radius-sm;

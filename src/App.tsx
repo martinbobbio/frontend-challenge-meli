@@ -14,10 +14,14 @@ interface AppProps {
  */
 const App = ({ children }: AppProps) => {
   return (
-    <div>
+    <>
       <Header />
-      <div className='app container mx-auto'>{children}</div>
-    </div>
+      <div className='app container mx-auto'>
+        <div className='grid grid-cols-12'>
+          <div className='col-start-2 col-span-10'>{children}</div>
+        </div>
+      </div>
+    </>
   );
 };
 

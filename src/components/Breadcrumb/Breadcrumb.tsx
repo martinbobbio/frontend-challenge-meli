@@ -2,7 +2,7 @@
 import './Breadcrumb.scss';
 
 export interface BreadcrumbProps {
-  title: React.ReactNode;
+  categories: string[];
 }
 
 /**
@@ -10,8 +10,19 @@ export interface BreadcrumbProps {
  *
  * @return React.ReactElement <Breadcrumb/>
  */
-const Breadcrumb = ({ title }: BreadcrumbProps) => {
-  return <p className='breadcrumb text-left'>{title}</p>;
+const Breadcrumb = ({ categories }: BreadcrumbProps) => {
+  return (
+    <p className='breadcrumb text-left'>
+      {categories?.map((category, i) => (
+        <span key={i}>
+          <span>{category}</span>
+          {i !== categories.length - 1 && (
+            <span className='separator'>{'>'}</span>
+          )}
+        </span>
+      ))}
+    </p>
+  );
 };
 
 export default Breadcrumb;

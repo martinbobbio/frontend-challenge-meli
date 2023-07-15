@@ -1,0 +1,46 @@
+@import '../../variables.scss';
+
+.card-product-detail {
+
+    .picture {
+        padding: $spacing-lg 0;
+    }
+    
+    .text-container {
+        margin-top: $spacing-lg;
+        margin-right: $spacing-lg;
+
+        .condition {
+            font-size: $font-size-md;
+            color: $color-gray-low;
+        }
+
+        .title {
+            font-size: $font-size-xl;
+            margin-top: $spacing-md;
+            margin-bottom: $spacing-lg;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .price {
+            margin: $spacing-lg 0;
+            font-size: $font-size-xxl;
+        }
+    }
+
+    .description-container {
+        margin: $spacing-lg;
+
+        .description-label {
+            font-size: 28px;
+        }
+
+        .description {
+            margin-top: $spacing-lg;
+            font-size: 16px;
+            color: $color-gray-low;
+        }
+    }
+
+}

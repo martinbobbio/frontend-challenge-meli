@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+.card-empty-state {
+    margin: $spacing-lg 0;
+}
+
+.product-list-container {
+    background: $color-card;
+    border-radius: $border-radius-md;
+    margin-bottom: 64px;
+}

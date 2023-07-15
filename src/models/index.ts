@@ -1,6 +1,7 @@
 // Product
 export type {
-  ResponseProducts,
-  ResponseProductsAuthor,
-  ResponseProductsItem,
+  ResponseProductList,
+  ResponseProductListItem,
+  ResponseProductDetail,
+  ResponseProductDetailItem,
 } from './Product/Product';

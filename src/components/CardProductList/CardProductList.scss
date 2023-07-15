@@ -1,6 +1,6 @@
 @import '../../variables.scss';
 
-.card-product {
+.card-product-list {
     
     .picture {
         min-width: 180px;
@@ -9,7 +9,6 @@
         max-height: 180px;
         margin: $spacing-md;
         border-radius: $border-radius-sm;
-        cursor: pointer;
     }
 
     .text-container {
@@ -17,22 +16,24 @@
         .price {
             font-size: $font-size-xl;
             margin-bottom: $spacing-lg;
-            cursor: pointer;
         }
         .icon-shipping {
-            width: 21px;
-            height: 21px;
+            width: 18px;
+            height: 18px;
         }
         .title {
             font-size: $font-size-lg;
         }
-        
+        .condition {
+            margin-top: $spacing-sm;
+            color: $color-gray-low;
+        }
     }
 
     .place-container {
         margin-top: $spacing-lg;
         .place {
-            color: $color-gray-high;
+            color: $color-gray-low;
             font-size: $font-size-sm;
         }
     }
