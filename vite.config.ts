@@ -2,12 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'url';
 import tailwind from 'tailwindcss';
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 export default defineConfig(() => {
-  // const env = dotenv.config({
-  //   path: `.env`,
-  // }).parsed;
+  const env = dotenv.config({
+    path: `.env.production`,
+  }).parsed;
 
   return {
     plugins: [react()],
@@ -19,12 +19,12 @@ export default defineConfig(() => {
         },
       ],
     },
-    // define: {
-    //   'process.env': Object.keys(env)?.reduce((acc, key) => {
-    //     acc[key] = JSON.stringify(env[key])?.replace(/^"(.+(?="$))"$/, '$1');
-    //     return acc;
-    //   }, {}),
-    // },
+    define: {
+      'process.env': Object.keys(env)?.reduce((acc, key) => {
+        acc[key] = JSON.stringify(env[key])?.replace(/^"(.+(?="$))"$/, '$1');
+        return acc;
+      }, {}),
+    },
     css: {
       preprocessorOptions: {
         scss: {
