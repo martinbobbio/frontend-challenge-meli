@@ -4,7 +4,7 @@ Frontend challenge project for Mercado Libre.
 
 ## Description
 
-This project is a frontend application developed using React with TypeScript and ViteJS. It includes two important views: product listing and product detail. The application fetches data from a Node.js API built with Express, which in turn queries the Mercado Libre API to retrieve the necessary information.
+This project is a frontend application developed using React with TypeScript and ViteJS. It includes two important views: product list and product detail. The application fetches data from a Node.js API built with Express, which in turn queries the Mercado Libre API to retrieve the necessary information.
 
 ## Getting started
 
