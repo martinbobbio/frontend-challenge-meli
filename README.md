@@ -20,7 +20,7 @@ git clone https://github.com/martinbobbio/frontend-challenge-meli
 npm install
 ```
 
-3. Create a .env file in the root directory of the project and add the following environment variables:
+3. Create a .env.development file in the root directory of the project and add the following environment variables:
 
 ```plaintext
 REACT_APP_API_URL=<api-url>

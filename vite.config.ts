@@ -4,9 +4,9 @@ import { fileURLToPath, URL } from 'url';
 import tailwind from 'tailwindcss';
 import dotenv from 'dotenv';
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
   const env = dotenv.config({
-    path: `.env.production`,
+    path: `.env.${mode}`,
   }).parsed;
 
   return {
