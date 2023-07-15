@@ -20,15 +20,10 @@ export default defineConfig(() => {
       ],
     },
     define: {
-      'process.env': env
-        ? Object.keys(env)?.reduce((acc, key) => {
-            acc[key] = JSON.stringify(env[key])?.replace(
-              /^"(.+(?="$))"$/,
-              '$1'
-            );
-            return acc;
-          }, {})
-        : null,
+      'process.env': Object.keys(env)?.reduce((acc, key) => {
+        acc[key] = JSON.stringify(env[key])?.replace(/^"(.+(?="$))"$/, '$1');
+        return acc;
+      }, {}),
     },
     css: {
       preprocessorOptions: {
