@@ -46,7 +46,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      {shouldRender.skeletons && <SkeletonDetail />}
+      {!shouldRender.skeletons && <SkeletonDetail />}
       {shouldRender.error && <CardEmptyState {...getEmptyStateError()} />}
       {shouldRender.main && data && (
         <>
