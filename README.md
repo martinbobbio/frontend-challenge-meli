@@ -1,6 +1,17 @@
-# Frontend Challenge - Mercado Libre
-
-Frontend challenge project for Mercado Libre.
+<h1 align="center">
+  <br>
+  <img src="https://raw.githubusercontent.com/martinbobbio/frontend-challenge-meli/master/src/assets/images/branding/logo-ml%402x.png" width="200">
+  <br>
+  <a href="https://frontend-challenge-meli.vercel.app/">
+  Challenge Mercado Libre - Frontend
+  </a>
+  <br>
+  <br>
+</h1>
+<h4 align="center">
+  <a href="https://github.com/martinbobbio/backend-challenge-meli">Challenge Mercado Libre - Backend</a>
+</h4>
+<br>
 
 ## Description
 
