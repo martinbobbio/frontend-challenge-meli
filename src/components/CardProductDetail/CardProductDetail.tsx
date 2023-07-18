@@ -40,10 +40,10 @@ const CardProductDetail = ({
 
   return (
     <div className='card-product-detail grid grid-cols-12'>
-      <div className='col-start-1 col-span-12 sm:col-start-2 sm:col-span-10 text-container text-left sm:hidden'>
+      <div className='col-start-1 col-span-12 lg:col-start-2 lg:col-span-10 text-container text-left lg:hidden'>
         <div>{renderTitle()}</div>
       </div>
-      <div className='col-span-12 sm:col-span-9 flex mx-auto'>
+      <div className='col-span-12 lg:col-span-9 flex mx-auto'>
         <img
           className='picture w-full h-auto'
           src={picture}
@@ -51,15 +51,15 @@ const CardProductDetail = ({
           onClick={redirectToDetail}
         />
       </div>
-      <div className='col-start-1 col-span-12 sm:col-start-10 sm:col-span-3 text-left text-container'>
-        <div className='hidden sm:block'>{renderTitle()}</div>
+      <div className='col-start-1 col-span-12 lg:col-start-10 lg:col-span-3 text-left text-container'>
+        <div className='hidden lg:block'>{renderTitle()}</div>
         <p className='price'>
           {price.currency} {amountFormat(price.amount)}
         </p>
         <Button>Comprar</Button>
       </div>
       {description && (
-        <div className='col-span-12 sm:col-span-9 text-left description-container'>
+        <div className='col-span-12 lg:col-span-9 text-left description-container'>
           <p className='description-label'>Descripción del producto</p>
           <p className='description'>{description}</p>
         </div>

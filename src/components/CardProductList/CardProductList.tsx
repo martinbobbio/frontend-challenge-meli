@@ -27,7 +27,7 @@ const CardProductList = ({
   const redirectToDetail = () => navigate(`/product/${id}`);
   return (
     <div className='card-product-list grid grid-cols-12'>
-      <div className='col-span-12 sm:col-span-9 flex'>
+      <div className='col-span-12 md:col-span-9 flex'>
         <img
           className='picture cursor-pointer'
           src={picture}
@@ -52,7 +52,7 @@ const CardProductList = ({
           {condition === 'used' && <p className='condition'>Usado</p>}
         </div>
       </div>
-      <div className='col-start-10 col-span-3 text-left place-container hidden sm:block'>
+      <div className='col-start-10 col-span-3 text-left place-container hidden md:block'>
         <p className='place'>{place}</p>
       </div>
     </div>

@@ -47,10 +47,13 @@
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .card-product-detail {
         .picture {
             padding: 0;
+            margin-bottom: $spacing-md;
+            border-radius: 0px;
+
         }
         .text-container {
             margin: 0 $spacing-md;

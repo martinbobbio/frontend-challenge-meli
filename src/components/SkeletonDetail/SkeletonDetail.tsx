@@ -22,17 +22,17 @@ const SkeletonDetail = () => {
       />
       <div className='product-list-container'>
         <div className='card-product-list grid grid-cols-12'>
-          <div className='col-start-1 col-span-12 sm:col-start-2 sm:col-span-8  flex mx-auto text-center'>
+          <div className='col-start-1 col-span-12 lg:col-start-2 lg:col-span-8  flex mx-auto text-center'>
             <div>
-              <Skeleton className='image sm:hidden' width={280} height={400} />
+              <Skeleton className='image lg:hidden' width={280} height={400} />
             </div>
             <Skeleton
-              className='image hidden sm:block'
+              className='image hidden lg:block'
               width={320}
               height={480}
             />
           </div>
-          <div className='col-start-10 col-span-3 text-left hidden sm:block'>
+          <div className='col-start-10 col-span-3 text-left hidden lg:block'>
             <Skeleton className='condition' width={140} height={14} />
             <Skeleton className='title' width={180} height={24} />
             <Skeleton className='title' width={120} height={24} />

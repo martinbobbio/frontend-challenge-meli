@@ -28,14 +28,14 @@ const SkeletonList = () => {
               <div className='text-container text-left'>
                 <Skeleton className='amount' width={124} height={24} />
                 <Skeleton
-                  className='title  hidden sm:block'
+                  className='title  hidden md:block'
                   width={320}
                   height={18}
                 />
                 <Skeleton className='condition' width={120} height={14} />
               </div>
             </div>
-            <div className='col-start-10 col-span-3 text-left hidden sm:block'>
+            <div className='col-start-10 col-span-3 text-left hidden md:block'>
               <Skeleton className='condition' width={120} height={14} />
             </div>
           </div>
