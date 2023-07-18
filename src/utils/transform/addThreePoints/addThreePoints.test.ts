@@ -1,23 +1,22 @@
-// import addThreePoints from './addThreePoints';
+import { test, describe, expect } from 'vitest';
+import addThreePoints from './addThreePoints';
 
-// describe('Util addThreePoints', () => {
-//   it('Should handle correct value', async () => {
-//     const result = addThreePoints('Lorem ipsum', 10);
-//     expect(result).toBe('Lorem ipsu...');
-//   });
+describe('addThreePoints', () => {
+  test('returns an empty string if value is undefined', () => {
+    const value: string | undefined = undefined;
+    const result = addThreePoints(value, 10);
+    expect(result).toBe('');
+  });
 
-//   it('Should handle correct value', async () => {
-//     const result = addThreePoints(undefined, 10);
-//     expect(result).toBe('');
-//   });
+  test('returns the full value if its length is less than the specified characters', () => {
+    const value = 'Hello';
+    const result = addThreePoints(value, 10);
+    expect(result).toBe(value);
+  });
 
-//   it('Should handle short value', async () => {
-//     const result = addThreePoints('Lo', 10);
-//     expect(result).toBe('Lo');
-//   });
-
-//   it('Should handle long value', async () => {
-//     const result = addThreePoints('Lorem ipsum lorem lorem lorem lorem lorem', 20);
-//     expect(result).toBe('Lorem ipsum lorem lo...');
-//   });
-// });
+  test('returns a truncated value followed by "..." if its length exceeds the specified characters', () => {
+    const value = 'Lorem ipsum dolor sit amet';
+    const result = addThreePoints(value, 10);
+    expect(result).toBe('Lorem ipsu...');
+  });
+});

@@ -1,5 +1,5 @@
 /**
- * Function that parse an address like Ethereum Ropst...
+ * Function that add three points to a string
  *
  * @param value for the parse
  * @param characters for characters

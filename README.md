@@ -65,3 +65,4 @@ npm run dev
 - `npm run build`: Builds the application for production.
 - `npm run lint`: Runs ESLint to lint the source code.
 - `npm run preview`: Builds and previews the production-ready application.
+- `npm run test`: Check unit tests.

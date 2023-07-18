@@ -1,8 +1,8 @@
-// import firstLetterUppercase from './firstLetterUppercase';
+import firstLetterUppercase from './firstLetterUppercase';
+import { test, expect } from 'vitest';
 
-// describe('Util firstLetterUppercase', () => {
-//   it('Should handle correct value', async () => {
-//     const result = firstLetterUppercase('lorem ipsum');
-//     expect(result).toBe('Lorem ipsum');
-//   });
-// });
+test('firstLetterUppercase capitalizes the first letter of the string', () => {
+  const value = 'lorem ipsum';
+  const result = firstLetterUppercase(value);
+  expect(result).toBe('Lorem ipsum');
+});
